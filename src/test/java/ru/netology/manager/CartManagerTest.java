@@ -26,7 +26,7 @@ class CartManagerTest {
         assertArrayEquals(expected, actual);
     }
 
-    @Test
+   /* @Test
     public void shouldNotRemoveIfNotExists() {
         CartManager manager = new CartManager();
         int idToRemove = 4;
@@ -43,5 +43,5 @@ class CartManagerTest {
         PurchaseItem[] expected = new PurchaseItem[]{third, second, first};
 
         assertArrayEquals(expected, actual);
-    }
+    }*/
 }
