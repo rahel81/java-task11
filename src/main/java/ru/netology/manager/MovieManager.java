@@ -1,13 +1,19 @@
 package ru.netology.manager;
 
+
 import ru.netology.domain.Movie;
 
 public class MovieManager {
     private Movie[] movies = new Movie[0];
     int maxLength = 10;
-    int newLength;
 
     public MovieManager() {
+    }
+
+    public MovieManager(int maxLength) {
+        if (maxLength >= 0) {
+            this.maxLength = maxLength;
+        }
     }
 
     public void add(Movie movie) {
@@ -20,28 +26,23 @@ public class MovieManager {
     }
 
     public Movie[] getAll() {
-        int length = movies.length;
+        int length = movies.length > maxLength ? maxLength : movies.length;
 
-        if (newLength <= 0) {
-            if (maxLength < movies.length) {
-                length = maxLength;
-            }
-        } else {
-            if (newLength < movies.length) {
-                length = newLength;
-            }
+        Movie[] result = new Movie[length];
+        for (int i = 0; i < result.length; i++) {
+            int index = movies.length - i - 1;
+            result[i] = movies[index];
         }
+        return result;
+    }
 
-            Movie[] result = new Movie[length];
-            for (int i = 0; i < result.length; i++) {
-                int index = movies.length - i - 1;
-                result[i] = movies[index];
-            }
-            return result;
-        }
-
-
-    public MovieManager(int newLength) {
-            this.newLength = newLength;
-        }
+    public Movie[] getLast() {
+        return movies;
+    }
 }
+
+
+
+
+
+

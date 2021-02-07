@@ -155,5 +155,27 @@ public class MovieManagerTest {
                 seventh, sixth, fifth, fourth, third, second, first};
         assertArrayEquals(expected, manager.getAll());
     }
+
+    @Test
+    void shouldPrintLastIfMoreTen() {
+        MovieManager manager = new MovieManager(15);
+
+        manager.add(first);
+        manager.add(second);
+        manager.add(third);
+        manager.add(fourth);
+        manager.add(fifth);
+        manager.add(sixth);
+        manager.add(seventh);
+        manager.add(eighth);
+        manager.add(ninth);
+        manager.add(tenth);
+        manager.add(eleventh);
+        manager.add(twelfth);
+
+        Movie[] expected = new Movie[]{twelfth, eleventh, tenth, ninth, eighth,
+                seventh, sixth, fifth, fourth, third, second, first};
+        assertArrayEquals(expected, manager.getAll());
+    }
 }
 
